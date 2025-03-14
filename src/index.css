@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.layout {
+  position: relative;
+}
+
+.layout > *:not(.content) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sec {
+  height: 100vh;
+  border: 1px solid red;
+}
+
+/* start landing */
+
+.landing {
+  display: grid;
+  place-items: center;
+}
+
+.landing .inner {
+  border: 1px solid green;
+  width: 75%;
+}
+
+@media (min-width: 992px) {
+  .landing .inner {
+    width: 80%;
+  }
+}
+
+/* end landing */
+
+.global {
+  z-index: 20;
+  pointer-events: none;
+}
+
+.navigation {
+  z-index: 30;
+  pointer-events: none;
+}
+.change_effect {
+  z-index: 40;
+  pointer-events: none;
+}
+
+.change_effect.active span {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  background: #00a1c1;
+
+  animation: after-slide-in-out 0.8s ease-in-out;
+}
+.change_effect.active span:nth-child(2) {
+  animation: before-slide-in-out 0.8s ease-in-out;
+
+  background: #00a1c196;
+  animation-timing-function: ease;
+}
+
+.change_effect.active span:nth-child(3) {
+  background: #00a1c148;
+  animation-timing-function: linear;
+}
+
+@keyframes after-slide-in-out {
+  0% {
+    height: 0;
+    bottom: 0;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+    bottom: 100%;
+  }
+}
+
+@keyframes before-slide-in-out {
+  0% {
+    height: 0;
+    bottom: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+    bottom: 100%;
+  }
+}
+
+/* start link styles */
+.box {
+  position: relative;
+  color: #000 !important;
+}
+
+.box,
+.box .hover_box {
+  display: inline-block;
+  /* width: 100%; */
+  /* border: 1px solid blue; */
+}
+
+.box .hover_box {
+  position: absolute;
+  /* width: 100%; */
+  inset: 0;
+  background-color: black;
+  color: #fff;
+}
+/* end link styles */
